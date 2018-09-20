@@ -1,0 +1,50 @@
+package com.java.walmart.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
+@Entity
+public class OrderItem {
+
+	@Id
+	@Column(name="itemId", nullable=false, updatable=false, insertable=true)
+	private int itemId;
+	private double price;
+	private boolean active;
+	
+	@ManyToOne
+	@JoinColumn(name = "id", nullable = false)
+	private Orders order;
+	
+	
+	public Orders getOrder() {
+		return order;
+	}
+	public void setOrder(Orders order) {
+		this.order = order;
+	}
+	public int getItemId() {
+		return itemId;
+	}
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	public boolean isStatus() {
+		return active;
+	}
+	public void setStatus(boolean status) {
+		this.active = status;
+	}
+	
+	
+}

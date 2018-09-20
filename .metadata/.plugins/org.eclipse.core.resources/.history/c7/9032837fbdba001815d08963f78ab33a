@@ -1,0 +1,18 @@
+package com.java.walmart.service;
+
+import org.springframework.stereotype.Service;
+
+import com.java.walmart.entity.Customer;
+import com.java.walmart.repository.CustomerRepository;
+
+@Service
+public class CustomerServiceImpl implements CustomerService{
+
+	private CustomerRepository repository;
+	@Override
+	public void savecustomer(Customer customer) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

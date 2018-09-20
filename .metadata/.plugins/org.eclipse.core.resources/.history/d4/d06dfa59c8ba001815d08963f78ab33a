@@ -1,0 +1,57 @@
+package com.java.walmart.entity;
+
+
+
+
+import java.sql.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+@Entity
+public class Orders {
+
+	@Id
+	private int OrderId;
+	
+	private Date Orderdate;
+	
+	private double OrderAmount;
+
+	private String status ;
+	
+	@ManyToOne
+	private Customer customer;
+	
+	public Customer getCustomer() {
+		return customer;
+	}
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+	public int getOrderId() {
+		return OrderId;
+	}
+	public void setOrderId(int orderId) {
+		OrderId = orderId;
+	}
+	public Date getOrderdate() {
+		return Orderdate;
+	}
+	public void setOrderdate(Date orderdate) {
+		Orderdate = orderdate;
+	}
+	public double getOrderAmount() {
+		return OrderAmount;
+	}
+	public void setOrderAmount(double orderAmount) {
+		OrderAmount = orderAmount;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
+}

@@ -1,0 +1,71 @@
+package com.java.walmart.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.java.walmart.entity.Orders;
+import com.java.walmart.repository.OrderRepository;
+
+@Service
+public class OrderServiceImpl implements OrderService{
+	
+   @Autowired	
+   private OrderRepository orderRepository;
+   
+	public List<Orders> getAllOrders() {
+		List<Orders> listOfOrders= new ArrayList<Orders>();
+		
+		List<Orders> orderList=(List<Orders>) orderRepository.findAll();
+		for(Orders order: orderList) {
+			listOfOrders.add(order);
+		}
+		return listOfOrders;
+	}
+
+	
+	@Override
+	public Orders saveOrder(Orders order) {
+		// TODO Auto-generated method stub
+		orderRepository.save(order);
+		return null;
+	}
+
+	@Override
+	public Orders updateOrder(Orders order) {
+		// TODO Auto-generated method stub
+		orderRepository.save(order);
+		return null;
+	}
+
+	@Override
+	public Orders deleteOrder(Orders order) {
+		// TODO Auto-generated method stub
+		orderRepository.delete(order.getOrderId());
+		return null;
+	}
+
+
+	@Override
+	public List<Orders> getOrdersByCustomerId(int customerId) {
+		// TODO Auto-generated method stub
+		List<Orders> listOfOrders= new ArrayList<Orders>();
+		List<Orders> orderList=(List<Orders>)orderRepository.findByCustomerCustomerId(customerId);
+		for(Orders order: orderList) {
+			listOfOrders.add(order);
+		}
+		return listOfOrders;
+	}
+
+
+	@Override
+	public Orders updateOrderStatus(Orders order) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+	
+}

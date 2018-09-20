@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package com.java.walmart.repository;
+
+/**
+ * @author AnushaMaddali
+ *
+ */
+public interface CustomerRepository {
+
+}

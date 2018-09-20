@@ -1,0 +1,6 @@
+package com.java.walmart.service;
+
+public interface CustomerService {
+
+	public void savecustomer(Customer customer);
+}

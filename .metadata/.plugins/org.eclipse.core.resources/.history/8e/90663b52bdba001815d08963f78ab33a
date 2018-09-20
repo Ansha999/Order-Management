@@ -1,0 +1,17 @@
+/**
+ * 
+ */
+package com.java.walmart.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.java.walmart.entity.Customer;
+import com.java.walmart.entity.Orders;
+
+/**
+ * @author AnushaMaddali
+ *
+ */
+public interface CustomerRepository extends JpaRepository<Customer, Integer>{
+
+}

@@ -1,0 +1,17 @@
+/**
+ * 
+ */
+package com.java.walmart.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.java.walmart.entity.OrderItem;
+
+/**
+ * @author AnushaMaddali
+ *
+ */
+@Repository
+public interface OrderItemRepository extends JpaRepository<OrderItem, Integer>{
+   // List<OrderItem> orderItems= 
+}

@@ -1,0 +1,8 @@
+package com.java.walmart.service;
+
+import com.java.walmart.entity.Customer;
+
+public interface CustomerService {
+
+	public void savecustomer(Customer customer);
+}

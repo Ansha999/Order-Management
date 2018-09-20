@@ -1,0 +1,43 @@
+package com.java.walmart.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.java.walmart.entity.Orders;
+import com.java.walmart.service.OrderService;
+
+@RestController
+@RequestMapping("/api")
+public class OrderController {
+	@Autowired
+	private OrderService orderService;
+	@RequestMapping("/orders")
+	public List<Orders> getOrders() {
+		return orderService.getAllOrders();
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value ="/orders/{id}")
+	public List<Orders> getOrdersByCustomerId(@PathVariable String id) {
+		return orderService.getOrdersByCustomerId(id);
+	}
+	@RequestMapping(method = RequestMethod.POST, value="/orders/add")
+	public void addOrder(@RequestBody Orders order) {
+		orderService.saveOrder(order);
+	}
+	
+	@RequestMapping(method = RequestMethod.PUT, value="/orders/update")
+	public void updateOrder(@RequestBody Orders order) {
+		orderService.updateOrder(order);
+	}
+	
+	@RequestMapping(method = RequestMethod.DELETE, value="/orders/delete")
+	public void deleteOrder(@RequestBody Orders order) {
+		orderService.deleteOrder(order);
+	}
+}

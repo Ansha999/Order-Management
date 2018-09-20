@@ -1,0 +1,14 @@
+package com.java.walmart.service;
+
+import com.java.walmart.entity.Customer;
+
+@Service
+public class CustomerServiceImpl implements CustomerService{
+
+	@Override
+	public void savecustomer(Customer customer) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

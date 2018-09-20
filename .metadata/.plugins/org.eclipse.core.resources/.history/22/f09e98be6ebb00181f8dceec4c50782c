@@ -1,0 +1,42 @@
+package com.java.walmart.logger;
+
+import java.util.UUID;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+
+@Aspect
+@Configuration
+public class ExecutionLoggerAspect {
+
+	 @Around("execution(* com.java.walmart.controller..*(..))")
+	  public Object profileExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
+
+	    long start = System.currentTimeMillis();
+	  /*  String className = joinPoint.getSignature().getDeclaringTypeName();
+	    String methodName = joinPoint.getSignature().getName();
+	    String apiName = className + "."+ methodName;
+	    HttpServletRequest request =
+	        ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
+	    String requestId = UUID.randomUUID().toString();
+	    System.out.println("----->>>>>\nREQUESTED_ID: {}\nHOST: {} HttpMethod: {}\nURI: {}\nAPI: {}\nArguments: {}\n",
+	        requestId,
+	        request.getHeader("host"),
+	        request.getMethod(),
+	        request.getRequestURI(),
+	        apiName,
+	        Arrays.toString(joinPoint.getArgs()));
+
+	    Object result = joinPoint.proceed();*/
+	    long elapsedTime = System.currentTimeMillis() - start;
+	  //  System.out.println("<<<<<-----\nExecution Time: {} ms [REQUESTED_ID: {}] [API: {}]", elapsedTime,requestId,apiName);
+        System.out.println("Execution time::"+elapsedTime);
+	    return result;
+	  }
+}
